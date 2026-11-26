@@ -1,11 +1,11 @@
 // ---------- Daftar gambar (ganti path ini dengan gambarmu sendiri) ----------
 const projectImages = [
-  "images/pionir.png", "images/porsenigama.png", "images/coder.jpeg", "images/coder.jpeg",
-  "images/porsenigama.png", "images/pionir.png", "images/coder.jpeg"
+  "images/project-1.svg", "images/project-2.svg", "images/project-3.svg", "images/project-4.svg",
+  "images/project-5.svg", "images/project-6.svg", "images/project-7.svg"
 ];
 const testiImages = [
-  "images/kak jano.jpeg", "images/GAUZA.jpeg", "images/CHELSEA.jpeg",
-  "images/prabowo2.png", "images/nvidia.png", "images/masukFE.jpg"
+  "images/person-1.svg", "images/person-2.svg", "images/person-3.svg",
+  "images/person-4.svg", "images/person-5.svg", "images/person-6.svg"
 ];
 
 // ---------- Portfolio: Show More / Show Less ----------
@@ -253,4 +253,44 @@ function openAuth(m, trigger) {
   authLast = trigger;
   setMode(m);
   authModal.hidden = false;
-  authForm.querySelector("input:not([hidden])").focus();}
+  authForm.querySelector("input:not([hidden])").focus();
+}
+function closeAuth() { authModal.hidden = true; authLast && authLast.focus(); }
+
+document.querySelectorAll("[data-auth]").forEach(b =>
+  b.addEventListener("click", () => {
+    if (b.classList.contains("logged")) { logout(); return; }
+    openAuth(b.dataset.auth, b);
+  }));
+authSwap.addEventListener("click", () => setMode(mode === "in" ? "up" : "in"));
+document.getElementById("authClose").addEventListener("click", closeAuth);
+authModal.addEventListener("click", e => { if (e.target === authModal) closeAuth(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !authModal.hidden) closeAuth(); });
+
+authForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const name = document.getElementById("authName").value.trim();
+  const email = document.getElementById("authEmail").value.trim();
+  const pass = document.getElementById("authPass").value;
+  authMsg.className = "auth-msg";
+  if (mode === "up" && !name) { authMsg.textContent = "Nama wajib diisi."; return; }
+  if (!/^\S+@\S+\.\S+$/.test(email)) { authMsg.textContent = "Format email belum benar."; return; }
+  if (pass.length < 6) { authMsg.textContent = "Password minimal 6 karakter."; return; }
+  authMsg.className = "auth-msg ok";
+  authMsg.textContent = mode === "up" ? "Akun berhasil dibuat!" : "Berhasil masuk!";
+  const shown = name || email.split("@")[0];
+  setTimeout(() => { closeAuth(); login(shown); authForm.reset(); }, 700);
+});
+
+function login(nameText) {
+  signInBtn.textContent = "Halo, " + nameText;
+  signInBtn.classList.add("logged");
+  signUpBtn.hidden = true;
+  signInBtn.title = "Klik untuk keluar";
+}
+function logout() {
+  signInBtn.textContent = "Sign In";
+  signInBtn.classList.remove("logged");
+  signUpBtn.hidden = false;
+  signInBtn.title = "";
+}
