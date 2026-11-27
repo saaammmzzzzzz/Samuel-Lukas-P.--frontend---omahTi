@@ -1,4 +1,4 @@
-// ---------- Daftar gambar (ganti path ini dengan gambarmu sendiri) ----------
+// ---------- Daftar gambar ----------
 const projectImages = [
   "images/coder.jpeg", "images/porsenigama.png", "images/pionir.png", "images/coder.jpeg",
   "images/porsenigma.png", "images/pionir.png", "images/coder.jpeg"
