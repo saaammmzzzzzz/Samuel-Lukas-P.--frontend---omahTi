@@ -1,7 +1,7 @@
-// ---------- Daftar gambar ----------
+// ---------- Daftar gambar (ganti path ini dengan gambarmu sendiri) ----------
 const projectImages = [
   "images/coder.jpeg", "images/porsenigama.png", "images/pionir.png", "images/coder.jpeg",
-  "images/porsenigama.png", "images/pionir.png", "images/coder.jpeg"
+  "images/porsenigma.png", "images/pionir.png", "images/coder.jpeg"
 ];
 const testiImages = [
   "images/kak jano.jpeg", "images/CHELSEA.jpeg", "images/GAUZA.jpeg",
