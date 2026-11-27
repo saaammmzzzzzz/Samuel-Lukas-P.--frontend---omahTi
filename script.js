@@ -4,8 +4,8 @@ const projectImages = [
   "images/porsenigma.png", "images/pionir.png", "images/coder.jpeg"
 ];
 const testiImages = [
-  "images/person-1.svg", "images/person-2.svg", "images/person-3.svg",
-  "images/person-4.svg", "images/person-5.svg", "images/person-6.svg"
+  "images/kak jano.jpeg", "images/CHELSEA.jpeg", "images/Gauza.jpeg",
+  "images/prabowo2.png", "images/nvidia.png", "images/masukFE.jpg"
 ];
 
 // ---------- Portfolio: Show More / Show Less ----------
