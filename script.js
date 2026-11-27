@@ -4,7 +4,7 @@ const projectImages = [
   "images/porsenigama.png", "images/pionir.png", "images/coder.jpeg"
 ];
 const testiImages = [
-  "images/kak jano.jpeg", "images/CHELSEA.jpeg", "images/GAUZA.jpeg",
+  "images/kak jano.jpeg", "images/CHELSEA.jpeg", "images/Gauza.jpeg",
   "images/prabowo2.png", "images/nvidia.png", "images/masukFE.jpg"
 ];
 
